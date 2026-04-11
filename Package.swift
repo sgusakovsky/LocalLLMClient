@@ -10,7 +10,8 @@ let llamaVersion = "b6871"
 var packageDependencies: [Package.Dependency] = [
     .package(url: "https://github.com/apple/swift-argument-parser.git", .upToNextMinor(from: "1.4.0")),
     .package(url: "https://github.com/huggingface/swift-jinja", .upToNextMinor(from: "2.0.0")),
-    .package(url: "https://github.com/swiftlang/swift-syntax", from: "600.0.0")
+    .package(url: "https://github.com/swiftlang/swift-syntax", from: "600.0.0"),
+    .package(url: "https://github.com/huggingface/swift-transformers.git", from: "1.1.9")
 ]
 
 #if os(iOS) || os(macOS)
@@ -135,6 +136,7 @@ packageTargets.append(contentsOf: [
             "LocalLLMClientCore",
             .product(name: "MLXLLM", package: "mlx-swift-lm"),
             .product(name: "MLXVLM", package: "mlx-swift-lm"),
+            .product(name: "Tokenizers", package: "swift-transformers"),
         ],
     ),
     .testTarget(

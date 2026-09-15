@@ -49,15 +49,12 @@ packageProducts.append(contentsOf: [
 
 // Shared by the Apple and Linux definitions of LocalLLMClientLlamaC so they cannot drift apart.
 let llamaCSettings: [CSetting] = [
-    .unsafeFlags(["-w"]),
     .define("LLAMA_BUILD_NUMBER", to: llamaBuildNumber),
     .headerSearchPath("."),
     .headerSearchPath("common")
 ]
 
-// mtmd-audio.cpp declares `constexpr bool DEBUG`, which a `DEBUG` macro would break.
 let llamaCxxSettings: [CXXSetting] = [
-    .unsafeFlags(["-UDEBUG"]),
     .define("LLAMA_BUILD_NUMBER", to: llamaBuildNumber),
     .headerSearchPath("."),
     .headerSearchPath("common")
